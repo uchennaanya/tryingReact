@@ -1,17 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import Forms from './form.js'
+import MouseTracker from './mousemove.js'
+import "./App.css";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const show = <h1> Uche Welcomes you to his personal blog </h1>
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  class Navigators extends React.Component{
+    render(){
+      return (
+        <nav>
+              <ul>
+                <li><a href="#" style={{color:'red'}}>Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+          )
+    }
+  }
+
+ReactDOM.render(<Navigators />, document.getElementById('myNav'))
+ReactDOM.render(show, document.getElementById('root'))
+ReactDOM.render(<Forms />, document.getElementById('forms'))
+ReactDOM.render(<MouseTracker />, document.getElementById('mousetracker'))

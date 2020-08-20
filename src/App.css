@@ -6,7 +6,34 @@
   height: 40vmin;
   pointer-events: none;
 }
+li{
+  list-style: none;
+  display: inline-block;
+  padding: 1rem;
+}
+a {
 
+  padding: .5rem 1rem;
+  text-decoration: none;
+  color: #000;
+}
+label {
+  color: red;
+  display: inline-block;
+  width: 5%;
+}
+input, button{
+  width: 50%;
+  padding: .3rem;
+  margin-top: .5rem;
+  float: none;
+}
+a:hover {
+  background-color: cyan;
+  padding: .5rem 1rem;
+  text-decoration: none;
+  color: #000;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -27,6 +54,7 @@
 .App-link {
   color: #61dafb;
 }
+
 
 @keyframes App-logo-spin {
   from {
