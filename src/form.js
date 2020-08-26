@@ -1,57 +1,54 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
 class Forms extends React.Component {
   constructor(props) {
     super(props)
-    this.state={userName: '', address: ''}
+    this.state={
+      username: null,
+      age: null,
+      phone: null,
+      address: null
+    }
 }
-handleOnChangeName = (event) => {
-  this.setState({userName: event.target.value})
-}
-handleOnChangeAddress = (event) => {
-  this.setState({address: event.target.value})
-}
-  render() {
-    let name = ''
-    let address = ''
 
-    if (this.state.userName ) {
-      name = <h1>
-      Your {this.state.userName}
-      </h1>
-    }else {
-      name = ''
-    }
-      if (this.state.address) {
-      address = <h2>
-        you live at no. {this.state.address}
-      </h2>
-    } else {
-      address =''
-    }
+  handleOnChange = (event) => {
+
+    let user = event.target.name
+    let ag = event.target.name
+    let addr = event.target.name
+    let phon = event.target.value
+
+
+    this.setState({[user]: phon, addr, ag})
+  }
+    render() {
+      let display = ''
+      if (this.state.username) {
+          display = <h3> Hello {this.state.username}, Age: {this.state.age}, Phone Number: {this.state.phone}, Address: {this.state.address},   </h3>
+      } else {
+        display = ''
+      }
     return (
       <form>
-        {name}
-        {address}
+      {display}
         <div>
-          <label for="name">Names:</label>
-          <input name="name" type="text" placeholder="Your Name" required id="name" onChange= {this.handleOnChangeName} />
+          <label >Names:</label>
+          <input name="username" type="text" placeholder="Your Name" required id="name" onChange= {this.handleOnChange} />
         </div>
         <div>
-          <label for="age">Age </label>
-          <input name="age" id="age" type="number" placeholder="Your Age" required />
+          <label >Age </label>
+          <input name="age" id="age" type="number" placeholder="Your Age" required onChange= {this.handleOnChange} />
         </div>
         <div>
-          <label for="phone">Phone </label>
-          <input name="phone" id="phone" type="tel" placeholder="Your Phone" required />
+          <label >Phone </label>
+          <input name="phone" id="phone" type="tel" placeholder="Your Phone" required onChange= {this.handleOnChange} />
         </div>
         <div>
-          <label for="address">Address </label>
-          <input name="address" type="text" placeholder="Your Address" required onChange= {this.handleOnChangeAddress} />
+          <label>Address </label>
+          <input name="address" type="text" placeholder="Your Address" required onChange= {this.handleOnChange} />
         </div>
         <label></label>
-        <input name="submit" type="submit" value="Send Form" />
+        <button name="submit" type="submit">Send</button>
       </form>
     )
   }
